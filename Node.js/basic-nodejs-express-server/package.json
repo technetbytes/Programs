@@ -1,0 +1,19 @@
+{
+  "name": "basic-nodejs-express-server",
+  "version": "1.0.0",
+  "description": "testing node.js express server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "server"
+  ],
+  "author": "Saqib Ullah Siddiqui",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
