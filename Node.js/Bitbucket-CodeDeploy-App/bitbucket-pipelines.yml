@@ -1,0 +1,34 @@
+image: node:10.15.3
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - node
+        script:
+          - apt-get update
+          - apt-get install -y zip
+          - zip -r application.zip .
+          - pipe: atlassian/aws-code-deploy:1.1.1
+            variables:
+              AWS_DEFAULT_REGION: 'ap-southeast-1'
+              AWS_ACCESS_KEY_ID: 'AKIA37G4PRD3EREKIODS'
+              AWS_SECRET_ACCESS_KEY: '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'
+              APPLICATION_NAME: 'testcodedeploy'
+              S3_BUCKET: 'cdtest-codedeploy-deployment'
+              COMMAND: 'upload'
+              ZIP_FILE: 'application.zip'
+              VERSION_LABEL: 'my-app-1.0.0'
+          - pipe: atlassian/aws-code-deploy:1.1.1
+            variables:
+              AWS_DEFAULT_REGION: 'ap-southeast-1'
+              AWS_ACCESS_KEY_ID: 'AKIA37G4PRD3EREKIODS'
+              AWS_SECRET_ACCESS_KEY: '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'
+              APPLICATION_NAME: 'testcodedeploy'
+              DEPLOYMENT_GROUP: 'testdeploymentgrp'
+              S3_BUCKET: 'cdtest-codedeploy-deployment'
+              COMMAND: 'deploy'
+              WAIT: 'true'
+              VERSION_LABEL: 'my-app-1.0.0'
+              IGNORE_APPLICATION_STOP_FAILURES: 'true'
+              FILE_EXISTS_BEHAVIOR: 'OVERWRITE'
