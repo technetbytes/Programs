@@ -12,8 +12,8 @@ pipelines:
           - pipe: atlassian/aws-code-deploy:1.1.1
             variables:
               AWS_DEFAULT_REGION: 'ap-southeast-1'
-              AWS_ACCESS_KEY_ID: 'AKIA37G4PRD3EREKIODS'
-              AWS_SECRET_ACCESS_KEY: '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'
+              AWS_ACCESS_KEY_ID: 'AKIA37GD3EREKODS'
+              AWS_SECRET_ACCESS_KEY: 'M/39pdG9vPNctU/L3MWjmqnIzPENxAgax'
               APPLICATION_NAME: 'testcodedeploy'
               S3_BUCKET: 'cdtest-codedeploy-deployment'
               COMMAND: 'upload'
@@ -22,8 +22,8 @@ pipelines:
           - pipe: atlassian/aws-code-deploy:1.1.1
             variables:
               AWS_DEFAULT_REGION: 'ap-southeast-1'
-              AWS_ACCESS_KEY_ID: 'AKIA37G4PRD3EREKIODS'
-              AWS_SECRET_ACCESS_KEY: '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'
+              AWS_ACCESS_KEY_ID: 'AKI7G4PRD3EREKIODS'
+              AWS_SECRET_ACCESS_KEY: 'M/39pdG9vqPNctUK6tmqnIzPENxAgax'
               APPLICATION_NAME: 'testcodedeploy'
               DEPLOYMENT_GROUP: 'testdeploymentgrp'
               S3_BUCKET: 'cdtest-codedeploy-deployment'
