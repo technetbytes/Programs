@@ -18,4 +18,4 @@ with SSHTunnelForwarder(
     dataFrame = pd.read_sql(sql, db, index_col='id')
     print(dataFrame.head())
      
-print("Data Fetchd .....")
+print("Data Fetched .....")
