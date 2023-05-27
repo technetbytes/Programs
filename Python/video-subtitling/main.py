@@ -4,8 +4,8 @@ from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
 
 
 # Place files in this path or modify the paths to point to where the files are
-srtfilename = 'D:/Programs/Python/video-subtitling/content/test.srt'
-mp4filename = 'D:/Programs/Python/video-subtitling/content/test.mp4'
+srtfilename = './content/test.srt'
+mp4filename = './content/test.mp4'
 
 def time_to_seconds(time_obj):
     return time_obj.hours * 3600 + time_obj.minutes * 60 + time_obj.seconds + time_obj.milliseconds / 1000
@@ -42,8 +42,8 @@ print ("Output file name: ",output_video_file)
 # Create subtitle clips
 subtitle_clips = create_subtitle_clips(subtitles,video.size)
 
-# # Add subtitles to the video
-# final_video = CompositeVideoClip([video] + subtitle_clips)
+# Add subtitles to the video
+final_video = CompositeVideoClip([video] + subtitle_clips)
 
-# # Write output video file
-# final_video.write_videofile(output_video_file)
+# Write output video file
+final_video.write_videofile(output_video_file)
