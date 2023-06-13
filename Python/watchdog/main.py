@@ -25,6 +25,7 @@ class Watcher:
         self.observer.join()
         print("\nWatcher Terminated\n")
 
+
 class csv_file_handler(watchdog.events.PatternMatchingEventHandler):
     def __init__(self):
         # Set the patterns for PatternMatchingEventHandler
