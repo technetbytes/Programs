@@ -26,7 +26,7 @@ def run_observer():
     observer.start()
     while True:
         time.sleep(1)
-        #print(threading.currentThread().name)
+        print(threading.currentThread().name)
 
 
 def simple_function():
