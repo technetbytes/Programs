@@ -67,11 +67,12 @@ with open("csv/"+csv_file_path, 'w', newline='', encoding='utf-8') as resultfile
     #     # saving data into csv file for each company
     Date = datetime.date.today()
 
-    #     # Write the header row
-    writer.writerow(['Date', 'Company_URL'] + headings_array[0])
+    if len(headings_array) > 1:    
+        #     # Write the header row
+        writer.writerow(['Date', 'Company_URL'] + headings_array[0] + headings_array[1])
 
-    #     # Write the data rows
-    writer.writerow([Date, company_url] + counts_array[0])
+        #     # Write the data rows
+        writer.writerow([Date, company_url] + counts_array[0] + counts_array[1])
 
     #     # clearing headcounts array to remove previous companies data
     headcounts_columns.clear()
