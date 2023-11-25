@@ -1,4 +1,20 @@
-FROM spark-base as spark
+ARG spark_version
+FROM spark-base:spark-base-${spark_version} as spark
+
+LABEL manteiner="Saqib Ullah Siddiqui <saqibullah@msn.com>"
+
+# -- Layer: Image Metadata
+ARG build_date
+
+LABEL org.label-schema.build-date=${build_date}
+LABEL org.label-schema.name="Apache Spark Image - Apache Spark cluster setup"
+LABEL org.label-schema.description="Apache Spark base image, use for master and worker"
+LABEL org.label-schema.url="https://github.com/technetbytes/Programs/Python/Spark-Cluster-JuypterLab"
+LABEL org.label-schema.schema-version="1.0"
+
+# Install python libraries & packages
+COPY requirements/requirements.txt .
+RUN pip3 install -r requirements.txt
 
 # Setup Spark related environment variables
 ENV PATH="/opt/spark/sbin:/opt/spark/bin:${PATH}"
@@ -17,7 +33,7 @@ ENV PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
 
 # Copy appropriate entrypoint script
 COPY entrypoint.sh .
-# RUN chmod +x ./entrypoint.sh
+# change permission of the bash script
 RUN chmod +x ./entrypoint.sh
 
 ENTRYPOINT ["./entrypoint.sh"]
