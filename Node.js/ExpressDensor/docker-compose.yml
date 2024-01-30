@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  epxress-densor:
+    image: saqibullah/express-densor-server
+    ports:
+      - 8090:8090
+    networks:
+      network:
+        ipv4_address: 10.5.0.5
+  prom-server:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus-config.yaml:/etc/prometheus/prometheus.yml
+    networks:
+      network:
+        ipv4_address: 10.5.0.6
+      
+networks:
+  network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
