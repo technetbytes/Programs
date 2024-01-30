@@ -12,7 +12,7 @@ app.get("/",(req,res) =>{
     return res.json({message:`This is express Dense Task Server`})
 });
 
-app.get("/metric", async (req, res) => {
+app.get("/metrics", async (req, res) => {
     res.setHeader('Content-Type',prom_client.register.contentType);
     const metric = await prom_client.register.metrics();
     res.send(metric)
