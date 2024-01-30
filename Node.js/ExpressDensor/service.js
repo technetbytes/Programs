@@ -1,4 +1,5 @@
 const express = require("express")
+const prom_client = require("prom-client") //metric collection
 const { denseTask } = require("./dense")
 
 const app = express()
