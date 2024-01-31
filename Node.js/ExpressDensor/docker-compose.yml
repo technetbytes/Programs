@@ -17,7 +17,14 @@ services:
     networks:
       network:
         ipv4_address: 10.5.0.6
-      
+  granfana-server:
+    image: grafana/grafana-oss
+    ports:
+      - 3000:3000
+    networks:
+      network:
+        ipv4_address: 10.5.0.7
+  
 networks:
   network:
     driver: bridge
