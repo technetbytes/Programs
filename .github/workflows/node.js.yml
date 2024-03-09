@@ -11,6 +11,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    defaults:
+      run:
+      # folder working directory.
+        working-directory: Node.js/TestGitActions
 
     strategy:
       matrix:
@@ -24,8 +28,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-      working-directory: Node.js/TestGitActions
-     
+    #- run: npm ci
+    #- run: npm run build --if-present
     #- run: npm test
