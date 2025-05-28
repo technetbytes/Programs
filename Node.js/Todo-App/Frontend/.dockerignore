@@ -1,0 +1,6 @@
+# Frontend build artifacts
+node_modules/
+dist/
+build/
+.env
+*.log
