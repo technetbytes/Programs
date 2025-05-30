@@ -6,7 +6,9 @@ services:
       context: ./Frontend
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "8080:80"
+    environment:
+      - BACKEND_URL=http://backend:5000
     depends_on:
       backend:
         condition: service_healthy
